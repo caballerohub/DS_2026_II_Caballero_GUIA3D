@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Buscador de perfiles GitHub</title>
+<style>
+body { font-family: Arial; max-width: 600px; margin: 2rem auto; }
+.perfil { display: flex; gap: 1rem; align-items: center; }
+.perfil img { width: 96px; border-radius: 50%; }
+.error { color: crimson; }
+.oculto { display: none; }
+.resumen-lenguajes { background: #f4f4f4; padding: 1rem; margin-top: 1rem; border-radius: 5px; }
+.acciones { margin-top: 1.5rem; text-align: center; }
+#btn-cargar-mas { padding: 0.5rem 1rem; cursor: pointer; }
+footer { margin-top: 2rem; font-size: 0.9rem; color: #555; text-align: center; border-top: 1px solid #ddd; padding-top: 1rem; }
+</style>
+</head>
+<body>
+<h1>Buscador de perfiles GitHub</h1>
+<form id="form-buscar">
+<input type="text" id="input-usuario" placeholder="Usuario" required>
+
+<select id="select-orden">
+  <option value="updated">Actualizados recientemente</option>
+  <option value="created">Fecha de creación</option>
+  <option value="full_name">Nombre completo</option>
+</select>
+
+<button type="submit" id="btn-buscar">Buscar</button>
+</form>
+
+<p id="estado"></p>
+<section id="perfil" class="perfil oculto"></section>
+
+<div id="resumen-lenguajes" class="resumen-lenguajes oculto"></div>
+
+<h2 id="titulo-repos" class="oculto">Repositorios recientes</h2>
+<ul id="repos"></ul>
+
+<!-- Contenedor del botón Cargar más requerido por la Actividad 3 -->
+<div class="acciones">
+  <button id="btn-cargar-mas" class="oculto">Cargar más</button>
+</div>
+
+<!-- Pie de página para mostrar las peticiones restantes (Actividad 3) -->
+<footer id="footer-rate-limit"></footer>
+
+<script src="app.js"></script>
+</body>
+</html>
